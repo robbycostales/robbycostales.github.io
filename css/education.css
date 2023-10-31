@@ -1,0 +1,41 @@
+.education {
+    display: flex;
+    align-items: center;
+    margin-bottom: -10px;
+  }
+
+  .edu-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* overflow: hidden; */
+    min-width: 60px; /* or whatever minimum width you'd like */
+    width: 60px;
+    /* max-height: 60px; */
+    margin-right: 30px;
+  }
+  
+  .edu-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  
+  .edu-content {
+    flex-grow: 1;
+  }
+  
+  .edu-university {
+    margin: 0;
+  }
+  
+  .edu-degree {
+    margin: 0;
+    color: grey;
+  }
+
+  .edu-advisor {
+    margin: 0;
+    color: grey;
+  }
+  

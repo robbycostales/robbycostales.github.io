@@ -1,0 +1,60 @@
+/* static/css/publication.css */
+.publication {
+    display: flex;
+    margin-bottom: 5px;
+  }
+
+  p {
+    margin-bottom: 0.05em;
+  }
+
+  .pub-content > div {
+    margin-bottom: 0.05em;
+  }  
+
+  .pub-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* overflow: hidden; */
+    min-width: 150px; /* or whatever minimum width you'd like */
+    margin-right: 20px;
+    width: 150px;
+  }
+  
+  .pub-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  
+  .pub-content {
+    flex-grow: 1;
+  }
+  
+  .pub-title {
+    margin: 0 0 0 0;
+  }
+  
+  .pub-links a {
+    margin-right: 10px;
+  }
+  
+  .pub-abstract {
+    margin-top: 5px;
+  }
+
+  .pub-abstract p {
+    color: #999;  /* Dark grey color */
+  }
+
+  .pub-authors {
+    font-style: italic;
+  }
+  
+  .pub-recognition {
+    font-weight: bold;
+    font-style: italic;
+  }
+  
+  
