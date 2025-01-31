@@ -1,100 +1,209 @@
-/* Adjust container to work with Bootstrap */
+/* Base Styles */
+html, body, content {
+    background-color: #141414;
+}
+
+* {
+    color: #b8b8b8;
+    font-family: 'Inconsolata', monospace;
+    line-height: 1.2;
+}
+
+/* Layout */
+.container {
+    max-width: 750px;
+}
+
 #content {
-  padding: 0 15px;
+    padding: 0 15px;
 }
 
-#content .taxonomy-title,
-#content .tags-list,
-#content .categories-list,
-#content .post-preview-container {
-  max-width: 750px;
-  margin-left: auto;
-  margin-right: auto;
+/* Navigation */
+.navbar-brand {
+    color: #b8b8b8;
+    text-decoration: none;
+    font-size: 2rem;
 }
 
-/* Style the page title container */
-#content .taxonomy-title {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+.navbar-brand:hover {
+    color: #b8b8b8;
+    text-decoration: underline;
 }
 
-.tag-item-container, .category-item-container {
-  margin: 1em 0;
-  padding: 1.5em;
-  border-radius: 8px;
-  background-color: #f8f9fa;
-  width: 100%;
-  box-sizing: border-box;
+.navbar-brand img {
+    filter: hue-rotate(24deg) brightness(0.4) contrast(1.4);
+    max-width: 80px !important;
+    height: auto !important;
 }
 
-.tag-header, .category-header {
-  margin-bottom: 0.5em;
+.nav-link {
+    color: #00a372;
+    text-decoration: none;
 }
 
-.tag-name {
-  font-weight: bold;
-  color: #0066cc;
+.nav-link:hover {
+    color: #00a372;
+    text-decoration: underline;
 }
 
-.category-name {
-  font-weight: bold;
-  color: #333;
+/* Content Links */
+#content a {
+    color: #00a372;
+    text-decoration: none;
 }
 
-.tag-details, .category-details {
-  font-size: 0.9em;
-  color: #666;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1em;
-  align-items: center;
+#content a:hover {
+    color: #00a372;
+    text-decoration: underline;
 }
 
-.latest-post {
-  flex: 1;
+/* Typography */
+#content h1, #content h2, #content h3, #content h4 {
+    font-weight: bold;
+    margin: 1rem 0 0.6rem;
 }
 
-.post-date {
-  color: #888;
+#content h1 { font-size: 1.8rem; }
+#content h2 { font-size: 1.6rem; }
+#content h3 { font-size: 1.4rem; }
+#content h4 { font-size: 1.2rem; }
+
+/* Lists */
+#content ul {
+    list-style: inside;
+    padding-left: 2rem;
 }
 
-.more-posts {
-  color: #0066cc;
-  text-decoration: none;
-  font-size: 0.9em;
+#content ul > li {
+    list-style-position: outside;
+    margin-left: 1em;
 }
 
-.more-posts:hover {
-  color: #0052a3;
+#content ol {
+    counter-reset: list;
+    list-style: none;
+    padding-left: 2rem;
 }
 
-/* Post preview styles */
-.post-preview {
-  margin-bottom: 2em;
-  padding-bottom: 1em;
-  border-bottom: 1px solid #eee;
+#content ol > li {
+    display: table-row;
+}
+
+#content ol > li:before {
+    content: "[" counter(list, decimal) "] ";
+    counter-increment: list;
+    display: table-cell;
+    text-align: right;
+    padding-right: .5em;
+}
+
+/* Code Blocks */
+#content code {
+    color: #b8b8b8;
+    background-color: #f8f8f8;
+    border: 1px solid #cccccc;
+    border-radius: 10%;
+    padding: 0 4px;
+    font-family: "Sans Mono", "Consolas", "Courier", monospace;
+}
+
+#content pre code {
+    all: unset;
+}
+
+/* Images */
+#content img {
+    display: block;
+    margin: 1rem auto;
+    max-width: 100%;
+    filter: invert(1) hue-rotate(180deg) brightness(0.8) contrast(1.2);
+    mix-blend-mode: screen;
+}
+
+.avatar > img {
+    border-radius: 50%;
+    float: right;
+    margin: -8px 0 0 16px;
+    height: 90px;
+    width: 90px;
+}
+
+/* Blog Post Styles */
+.post {
+    max-width: 750px;
+    margin: 0 auto;
 }
 
 .post-meta {
-  font-size: 0.9em;
-  color: #666;
-  margin: 0.5em 0;
+    margin: 10px 0;
+    font-size: 0.9em;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
 }
 
-.post-summary {
-  color: #444;
-  margin-top: 0.5em;
+.post-date {
+    color: inherit;
+}
+
+.post hr {
+    margin: 1.5rem 0;
+    border: 0;
+    border-top: 1px solid currentColor;
+}
+
+/* Post Preview Styles */
+.post-preview {
+    margin-bottom: 2em;
+    padding-bottom: 1em;
+    border-bottom: 1px solid currentColor;
 }
 
 .post-preview h3 {
-  margin-bottom: 0.2em;
+    margin-bottom: 0.2em;
 }
 
 .post-preview h3 a {
-  color: #333;
-  text-decoration: none;
+    text-decoration: none;
 }
 
-.post-preview h3 a:hover {
-  color: #0066cc;
+.post-summary {
+    margin-top: 0.5em;
 }
+
+/* Footer */
+#footer a {
+    color: #b8b8b8;
+    text-decoration: none;
+}
+
+#footer a:hover {
+    color: #b8b8b8;
+    text-decoration: underline;
+}
+
+/* Tag and Category Pages */
+.tag-item-container,
+.category-item-container {
+    margin: 1em 0;
+    padding: 1.5em;
+    border-radius: 8px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.tag-header,
+.category-header {
+    margin-bottom: 0.5em;
+}
+
+.tag-details,
+.category-details {
+    font-size: 0.9em;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    align-items: center;
+}
+
+
