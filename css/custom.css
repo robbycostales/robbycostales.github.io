@@ -1,6 +1,6 @@
 /* Base Styles */
 html, body, content {
-    background-color: #141414;
+    background-color: #191923;
 }
 
 * {
@@ -31,9 +31,49 @@ html, body, content {
 }
 
 .navbar-brand img {
-    filter: hue-rotate(24deg) brightness(0.4) contrast(1.4);
     max-width: 80px !important;
     height: auto !important;
+    position: relative;
+}
+
+/* Wrapper for the double animation effect */
+.navbar-brand {
+    --hue-value: 0deg;
+    --brightness-value: 0.4;
+}
+
+.navbar-brand img {
+    filter: hue-rotate(var(--hue-value)) brightness(var(--brightness-value)) contrast(1.4);
+    animation: hue-shift 12s ease-in-out infinite, heartbeat 2.5s ease-in-out infinite;
+}
+
+/* Slow gradual color shift */
+@keyframes hue-shift {
+    0% {
+        filter: hue-rotate(0deg) brightness(0.5) contrast(1.5) saturate(1);
+    }
+    25% {
+        filter: hue-rotate(60deg) brightness(0.5) contrast(1.5) saturate(1.1);
+    }
+    50% {
+        filter: hue-rotate(120deg) brightness(0.5) contrast(1.5) saturate(1.2);
+    }
+    75% {
+        filter: hue-rotate(60deg) brightness(0.5) contrast(1.5) saturate(1.1);
+    }
+    100% {
+        filter: hue-rotate(0deg) brightness(0.5) contrast(1.5) saturate(1);
+    }
+}
+
+/* Fast heartbeat pulse - brightness only */
+@keyframes heartbeat {
+    0%, 100% {
+        opacity: 0.6;
+    }
+    50% {
+        opacity: 1.4;
+    }
 }
 
 .nav-link {
@@ -120,6 +160,12 @@ html, body, content {
     mix-blend-mode: screen;
 }
 
+/* Remove filters from profile pictures */
+#content img.profile-pic {
+    filter: none !important;
+    mix-blend-mode: normal !important;
+}
+
 .avatar > img {
     border-radius: 50%;
     float: right;
@@ -171,7 +217,24 @@ html, body, content {
     margin-top: 0.5em;
 }
 
+/* Header */
+.header-wrapper {
+    background-color: #23232d;
+    padding: 1.5rem 0 1rem 0;
+    width: 100%;
+}
+
+.header-wrapper .container.mt-5 {
+    margin-top: 0 !important;
+}
+
 /* Footer */
+#footer {
+    background-color: #23232d;
+    padding: 1rem 0;
+    margin-bottom: 0 !important;
+}
+
 #footer a {
     color: #b8b8b8;
     text-decoration: none;
@@ -204,6 +267,122 @@ html, body, content {
     flex-wrap: wrap;
     gap: 1em;
     align-items: center;
+}
+
+/* Highlighted intro text */
+.highlight-intro {
+    color: #f4e6a8;
+}
+
+/* Visitor Map */
+.visitor-map-container {
+    margin-top: 2rem;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.visitor-map-container img {
+    max-width: 100%;
+    height: auto;
+    filter: none !important;
+    mix-blend-mode: normal !important;
+}
+
+@media (max-width: 600px) {
+    .visitor-map-container {
+        max-width: 300px;
+    }
+}
+
+/* Profile Section */
+#content .profile-section {
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+#content .profile-section .profile-pic-container {
+    flex-shrink: 0;
+    order: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+#content .profile-section .profile-pic {
+    width: 250px !important;
+    max-width: 250px !important;
+    height: auto;
+    border-radius: 20px;
+    display: block !important;
+    margin: 0 !important;
+}
+
+#content .profile-section .profile-social-icons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+#content .profile-section .profile-social-icons a {
+    color: #00a372;
+    font-size: 1.5rem;
+    text-decoration: none;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+#content .profile-section .profile-social-icons a:hover {
+    color: #00c48c;
+    transform: scale(1.1);
+    text-decoration: none;
+}
+
+#content .profile-section .profile-cv-links {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0.5rem;
+}
+
+#content .profile-section .profile-cv-links a {
+    color: #00a372;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+#content .profile-section .profile-cv-links a:hover {
+    color: #00c48c;
+    text-decoration: underline;
+}
+
+#content .profile-section .profile-text {
+    flex: 1;
+    order: 1;
+}
+
+@media (max-width: 600px) {
+    #content .profile-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #content .profile-section .profile-pic-container {
+        order: 1;
+    }
+
+    #content .profile-section .profile-pic {
+        width: 150px !important;
+    }
+
+    #content .profile-section .profile-text {
+        order: 2;
+    }
 }
 
 
